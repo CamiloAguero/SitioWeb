@@ -1,7 +1,7 @@
 {% extends "SitioWebApp/base.html" %}
 
 {% load static %}
-{% block title %}Fichas Clínicas{% endblock %}
+{% block title %}Agregar Ficha Clínica{% endblock %}
 
 {% block content %}
 
@@ -12,29 +12,6 @@
         <span class="section-heading-lower" style="color: darkblue;">FICHA CLÍNICA</span>
     </h2>
     <p class="mb-3" style="color: rgb(0, 0, 0); text-align: center;">Rellena los datos</p>
-
-
-    {% if "error" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">La hora ya esta registrada, porfavor eliga otra</p>
-    {% endif %}
-    {% if "finde" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">Lo siento, no trabajamos los fines de semana, escoge otro dia</p>
-    {% endif %}
-    {% if "horario" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">La hora elegida esta fuera de nuestro horario, porfavor eliga otra</p>
-    {% endif %}
-    {% if "dire" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">Si requiere atencion a domicilio, por favor ingrese su domicilio</p>
-    {% endif %}
-    {% if "cant_neg" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">La cantidad tiene que ser mayor a 0, ingrese 1 por defecto</p>
-    {% endif %}
-    {% if "cant" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">La cantidad solo es para <strong>Uña encarnada</strong> y <strong>ojo de gallo</strong>, ingrese 1 por defecto</p>
-    {% endif %}
-    {% if "fecha" in request.GET %}
-        <p style="color: red; text-align: center; font-size: 20 ">No puedes reservar para hoy</p>
-    {% endif %}
 
 
     <form action="" method="post" style="color: darkblue; text-align: center; margin: auto" enctype="multipart/form-data">
