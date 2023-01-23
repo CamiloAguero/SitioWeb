@@ -11,6 +11,7 @@ class formulario_fichas(forms.ModelForm):
     atencion = forms.DateTimeField(label="Ultima Atención Podologica",required=True,widget=formato_fecha())
 
     observacion = forms.CharField(label='Observaciones', widget=forms.Textarea)
+    
 
     class Meta:
             model = Ficha

@@ -20,7 +20,7 @@ class Ficha(models.Model):
     nacimiento = models.DateField(null=False, verbose_name="Fecha de nacimiento")
     edad = models.IntegerField(null=False, verbose_name="Edad")
     direccion = models.CharField(max_length=1000,null=False)
-    imagen = models.ImageField(upload_to='ficha',null=True,blank=True, verbose_name="Adjuntar imagen")
+    imagen = models.ImageField(upload_to="ficha",null=True,blank=True, verbose_name="Adjuntar imagen")
     morbido = models.CharField(null=True, verbose_name="Morbidos",choices=opcion,default='NO',max_length=10)
     cronico = models.CharField(choices=cronicas,null=True, verbose_name="Enf. Cronicas", default='NO',max_length=50)
     alergia = models.CharField(max_length=1000, null=True, blank=True, verbose_name="Alergias")
@@ -31,3 +31,6 @@ class Ficha(models.Model):
 
     class Meta:
         verbose_name: 'Ficha'
+
+    def __str__(self):
+        return self.nombre

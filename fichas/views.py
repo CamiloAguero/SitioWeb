@@ -23,7 +23,7 @@ def agrgar_ficha(request):
         nacimiento = request.POST.get("nacimiento")
         edad = request.POST.get("edad")
         direccion = request.POST.get("direccion")
-        imagen = request.POST.get("imagen")
+        imagen = request.FILES.get("imagen")
         morbido = request.POST.get("morbido")
         cronico = request.POST.get("cronico")
         alergia = request.POST.get("alergia")

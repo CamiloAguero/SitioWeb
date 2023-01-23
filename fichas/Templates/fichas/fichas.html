@@ -37,7 +37,7 @@
     {% endif %}
 
 
-    <form action="" method="post" style="color: darkblue; text-align: center; margin: auto">
+    <form action="" method="post" style="color: darkblue; text-align: center; margin: auto" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
             <h2 class="section-heading mb-4" style="text-align: center;">
@@ -65,7 +65,7 @@
             <br>
             <strong>{{formulario.imagen.label}}</strong>
             <br>
-            {{formulario.imagen}}
+            <input type="file" name="imagen" id="imagen">
             <br>
             <strong>{{formulario.direccion.label}}</strong>
             <br>
