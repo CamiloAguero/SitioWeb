@@ -1,7 +1,7 @@
 {% extends "SitioWebApp/base.html" %}
 
 {% load static %}
-{% block title %}Ver Reservas{% endblock %}
+{% block title %}Ver Fichas{% endblock %}
 
 
 
@@ -52,7 +52,7 @@
         {% for fichas in ficha %}
             <tr>
                 <td>
-                    <a href="#" style="color: darkblue;" >{{fichas.nombre}}</a>
+                    <a href="{% url 'VerFicha' fichas.id %}" style="color: darkblue;" >{{fichas.nombre}}</a>
                 </td>
                 <td>
                     {{fichas.rut}}

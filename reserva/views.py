@@ -38,18 +38,9 @@ def reserva(request):
             precio = precio_total(tratamiento,domicilio,cant)
 
             valida = validacion_reserva(hora,fecha,domicilio,direccion,tratamiento,cant)
-            if valida == 'error':
-                return redirect('/reserva/?error')
-            elif valida == 'finde':
-                return redirect('/reserva/?finde')
-            elif valida == 'dire':
-                return redirect('/reserva/?dire')
-            elif valida == 'cant_neg':
-                return redirect('/reserva/?cant_neg')
-            elif valida == 'cant':
-                return redirect('/reserva/?cant')
-            elif valida == 'fecha':
-                return redirect('/reserva/?fecha')
+            if valida:
+                return render(request,"reserva/reserva.html",{"formulario":form_reserva,"valida":valida})
+                #return redirect(f'/reserva/?{valida}')
             else:
                 #Base de datos
                 reservas.nombre = nombre

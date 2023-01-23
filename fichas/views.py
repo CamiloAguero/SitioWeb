@@ -9,7 +9,7 @@ from .models import Ficha
 locale.setlocale(locale.LC_ALL, '')
 
 def fichas(request):
-    ficha = Ficha.objects.all()
+    ficha = Ficha.objects.order_by('id')
     return render(request,"ver_fichas/ver_fichas.html",{"ficha":ficha})
 
 def agrgar_ficha(request):
@@ -50,7 +50,7 @@ def agrgar_ficha(request):
         return render(request,"ficha/ficha.html",{"formulario":form_ficha,"ficha":ficha})
     return render(request,"fichas/fichas.html",{"formulario":form_ficha})
 
-def eliminar(ficha_id):
+def eliminar(request,ficha_id):
     ficha = Ficha.objects.get(id=ficha_id)
     ficha.delete()
     return redirect('/fichas/?exito')
@@ -61,7 +61,12 @@ def modificar(request,ficha_id):
     if request.method == "POST":
         ficha = Ficha.objects.get(id=ficha_id)
         obs = request.POST.get('observacion')
-        ficha.observacion += obs
+        ficha.observacion = obs
         ficha.save()
         return redirect('/fichas/')
     return render(request,"mod_ficha/mod_ficha.html",{"ficha":ficha,"formulario":form_ficha})
+
+def ver_ficha(request,ficha_id):
+    ficha = Ficha.objects.get(id=ficha_id)
+    form_ficha = formulario_fichas()
+    return render(request,"ver_ficha/ver_ficha.html",{"ficha":ficha,"formulario":form_ficha})

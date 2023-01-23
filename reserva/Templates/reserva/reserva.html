@@ -13,26 +13,25 @@
     </h2>
     <p class="mb-3" style="color: rgb(0, 0, 0); text-align: center;">Rellena los datos y reserva tu horas</p>
 
-
-    {% if "error" in request.GET %}
+    {% if "error" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">La hora ya esta registrada, porfavor eliga otra</p>
     {% endif %}
-    {% if "finde" in request.GET %}
+    {% if "finde" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">Lo siento, no trabajamos los fines de semana, escoge otro dia</p>
     {% endif %}
-    {% if "horario" in request.GET %}
+    {% if "horario" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">La hora elegida esta fuera de nuestro horario, porfavor eliga otra</p>
     {% endif %}
-    {% if "dire" in request.GET %}
+    {% if "dire" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">Si requiere atencion a domicilio, por favor ingrese su domicilio</p>
     {% endif %}
-    {% if "cant_neg" in request.GET %}
+    {% if "cant_neg" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">La cantidad tiene que ser mayor a 0, ingrese 1 por defecto</p>
     {% endif %}
-    {% if "cant" in request.GET %}
+    {% if "cant" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">La cantidad solo es para <strong>Uña encarnada</strong> y <strong>ojo de gallo</strong>, ingrese 1 por defecto</p>
     {% endif %}
-    {% if "fecha" in request.GET %}
+    {% if "fecha" in valida %}
         <p style="color: red; text-align: center; font-size: 20 ">No puedes reservar para hoy</p>
     {% endif %}
 
