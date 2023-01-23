@@ -74,7 +74,7 @@
           <li class="nav-item {% if request.path|slice:':14' == '/ver_reservas/' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Ver_Reservas' %}">Ver Reservas</a>
           </li>
-          <li class="nav-item {% if request.path == '/fichas/' %}active{% endif %} px-lg-4">
+          <li class="nav-item {% if request.path|slice:':8' == '/fichas/' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Fichas' %}">Fichas Clínicas</a>
           </li>
           {% endif %}

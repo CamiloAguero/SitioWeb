@@ -3,7 +3,116 @@
 {% load static %}
 {% block title %}Fichas Clínicas{% endblock %}
 
-
-
 {% block content %}
+
+<div class="formu">
+
+
+    <h2 class="section-heading mb-4" style="text-align: center;">
+        <span class="section-heading-lower" style="color: darkblue;">FICHA CLÍNICA</span>
+    </h2>
+    <p class="mb-3" style="color: rgb(0, 0, 0); text-align: center;">Rellena los datos</p>
+
+
+    {% if "error" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">La hora ya esta registrada, porfavor eliga otra</p>
+    {% endif %}
+    {% if "finde" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">Lo siento, no trabajamos los fines de semana, escoge otro dia</p>
+    {% endif %}
+    {% if "horario" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">La hora elegida esta fuera de nuestro horario, porfavor eliga otra</p>
+    {% endif %}
+    {% if "dire" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">Si requiere atencion a domicilio, por favor ingrese su domicilio</p>
+    {% endif %}
+    {% if "cant_neg" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">La cantidad tiene que ser mayor a 0, ingrese 1 por defecto</p>
+    {% endif %}
+    {% if "cant" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">La cantidad solo es para <strong>Uña encarnada</strong> y <strong>ojo de gallo</strong>, ingrese 1 por defecto</p>
+    {% endif %}
+    {% if "fecha" in request.GET %}
+        <p style="color: red; text-align: center; font-size: 20 ">No puedes reservar para hoy</p>
+    {% endif %}
+
+
+    <form action="" method="post" style="color: darkblue; text-align: center; margin: auto">
+        {% csrf_token %}
+        <div>
+            <h2 class="section-heading mb-4" style="text-align: center;">
+                <span class="section-heading-lower" style="color: darkblue; font-size: 20;">1.-Identificacion del paciente (Datos civiles):</span>
+            </h2>
+            <strong>{{formulario.nombre.label}}</strong>
+            <br>
+            {{formulario.nombre}}
+            <br>
+            <strong>{{formulario.rut.label}}</strong>
+            <br>
+            {{formulario.rut}}
+            <br>
+            <strong>{{formulario.telefono.label}}</strong>
+            <br>
+            {{formulario.telefono}}
+            <br>
+            <strong>{{formulario.nacimiento.label}}</strong>
+            <br>
+            {{formulario.nacimiento}}
+            <br>
+            <strong>{{formulario.edad.label}}</strong>
+            <br>
+            {{formulario.edad}}
+            <br>
+            <strong>{{formulario.imagen.label}}</strong>
+            <br>
+            {{formulario.imagen}}
+            <br>
+            <strong>{{formulario.direccion.label}}</strong>
+            <br>
+            {{formulario.direccion}}
+            <br>
+            <h2 class="section-heading mb-4" style="text-align: center;">
+                <span class="section-heading-lower" style="color: darkblue; font-size: 20;">2.-Antecedentes (Anamnecis Remota):</span>
+            </h2>
+            <strong>{{formulario.morbido.label}}</strong>
+            <br>
+            {{formulario.morbido}}
+            <br>
+            <strong>{{formulario.cronico.label}}</strong>
+            <br>
+            {{formulario.cronico}}
+            <br>
+            <strong>{{formulario.alergia.label}}</strong>
+            <br>
+            {{formulario.alergia}}
+            <br>
+            <strong>{{formulario.medicamentos.label}}</strong>
+            <br>
+            {{formulario.medicamentos}}
+            <br>
+            <h2 class="section-heading mb-4" style="text-align: center;">
+                <span class="section-heading-lower" style="color: darkblue; font-size: 20;">3.-Antecedentes Podologicos:</span>
+            </h2>
+            <strong>{{formulario.atencion.label}}</strong>
+            <br>
+            {{formulario.atencion}}
+            <br>
+            <strong>{{formulario.amputacion.label}}</strong>
+            <br>
+            {{formulario.amputacion}}
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success";>Aceptar</button>
+            <br>
+        </div>
+
+    </form>
+
+    <p class="mb-3" style="color: rgb(0, 0, 0); text-align: center;">
+        El horario de atención es de: <br>
+        <strong>Lunes a Viernes 10:00 a 20:00 hrs</strong>
+    </p>
+
+</div>
+
 {% endblock %}

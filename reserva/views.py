@@ -161,7 +161,7 @@ def precio_total(tratamiento,domicilio, cant):
     elif tratamiento == 'Ojo de gallo':
         precio = 18000
 
-    if domicilio == True:
+    if domicilio:
         precio += 5000
     
     if cant > 1:

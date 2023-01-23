@@ -1,0 +1,81 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% block title %}Ver Reservas{% endblock %}
+
+
+
+{% block content %}
+    <!--
+    <form action="" method="post" style="width: 50%; color: black; text-align: center; margin: auto;">
+        {% csrf_token %}
+        <label for="buscar">Ingrese Fecha</label>
+        <input type="date" id="fecha" name="fecha">
+        <button type="submit" class="btn btn-success" name="btnBuscar" id="btnBuscar">Buscar</button>
+    </form>
+    -->
+    <table class="tab" style="color: darkblue; text-align: center;">
+        <tr>
+            <th colspan="8">
+                <h2 class="section-heading mb-4" style="text-align: center;">
+                    <span class="section-heading-lower" style="color: darkblue;">Fichas</span>
+                </h2>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="8">
+                {% if "exito" in request.GET %}
+                    <p style="color: green; text-align: center; font-size: 20 ">Se quito con exitos</p>
+                {% endif %}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Rut
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Fecha de Nacimiento
+            </th>
+            <th>
+                Edad
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+        {% for fichas in ficha %}
+            <tr>
+                <td>
+                    <a href="#" style="color: darkblue;" >{{fichas.nombre}}</a>
+                </td>
+                <td>
+                    {{fichas.rut}}
+                </td>
+                <td>
+                    +56 {{fichas.telefono}}
+                </td>
+                <td>
+                    {{fichas.nacimiento}}
+                </td>
+                <td>
+                    {{fichas.edad}}
+                </td>
+                <td>
+                    <a href="{% url 'EliminarFicha' fichas.id %}" class="btn btn-success"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="6">
+                <br>
+                <a href="{% url 'AgregarFichas'%}" class="btn btn-success">Agregar Ficha</i></a>
+            </th>
+        </tr>
+    </table>
+{% endblock %}
