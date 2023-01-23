@@ -27,6 +27,7 @@ class Ficha(models.Model):
     medicamentos = models.CharField(max_length=1000, null=True, blank=True, verbose_name="Medicamentos")
     atencion = models.DateField(null=False, verbose_name="Ultima Atención Podologica")
     amputacion = models.CharField(null=True,blank=True, verbose_name="Amputacion",choices=opcion,default='NO',max_length=10)
+    observacion = models.CharField(null=False, verbose_name="Observaciones", max_length=100000)
 
     class Meta:
         verbose_name: 'Ficha'

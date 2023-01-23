@@ -45,7 +45,7 @@
             <th>
                 Edad
             </th>
-            <th>
+            <th colspan="2">
                 Acciones
             </th>
         </tr>
@@ -68,11 +68,12 @@
                 </td>
                 <td>
                     <a href="{% url 'EliminarFicha' fichas.id %}" class="btn btn-success"><i class="bi bi-trash"></i></a>
+                    <a href="{% url 'ModificarFicha' fichas.id %}" class="btn btn-success"><i class="bi bi-gear"></i></a>
                 </td>
             </tr>
         {% endfor %}
         <tr>
-            <th colspan="6">
+            <th colspan="7">
                 <br>
                 <a href="{% url 'AgregarFichas'%}" class="btn btn-success">Agregar Ficha</i></a>
             </th>

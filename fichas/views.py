@@ -30,6 +30,7 @@ def agrgar_ficha(request):
         medicamentos = request.POST.get("medicamentos")
         atencion = request.POST.get("atencion")
         amputacion = request.POST.get("amputacion")
+        observacion = request.POST.get("observacion")
         #BD
         ficha.nombre = nombre
         ficha.rut = rut
@@ -44,11 +45,23 @@ def agrgar_ficha(request):
         ficha.medicamentos = medicamentos
         ficha.atencion = atencion
         ficha.amputacion = amputacion
+        ficha.observacion = observacion
         ficha.save()
         return render(request,"ficha/ficha.html",{"formulario":form_ficha,"ficha":ficha})
     return render(request,"fichas/fichas.html",{"formulario":form_ficha})
 
-def eliminar(request,ficha_id):
+def eliminar(ficha_id):
     ficha = Ficha.objects.get(id=ficha_id)
     ficha.delete()
     return redirect('/fichas/?exito')
+
+def modificar(request,ficha_id):
+    ficha = Ficha.objects.get(id=ficha_id)
+    form_ficha = formulario_fichas()
+    if request.method == "POST":
+        ficha = Ficha.objects.get(id=ficha_id)
+        obs = request.POST.get('observacion')
+        ficha.observacion += obs
+        ficha.save()
+        return redirect('/fichas/')
+    return render(request,"mod_ficha/mod_ficha.html",{"ficha":ficha,"formulario":form_ficha})
