@@ -1,0 +1,59 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% block title %}Redes Sociales{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container my-5">
+
+  <div style="background-color: #81D4FA; text-align: center;" class="container p-4 pb-0">
+
+    <h2 class="section-heading mb-4" style="text-align: center;">
+      <span class="section-heading-lower" style="color: darkblue;">Siguenos en nuestras redes!</span>
+    </h2>
+
+    <div id="player-overlay">
+      <video autoplay muted loop playsinline>
+        <source src="/media/redes/vd1.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <br>
+
+    <section class="mb-3">
+          <a
+            class="btn btn-primary btn-floating "
+            style="background-color: #3b5998; width: 50%"
+            href="https://www.facebook.com/valpodologa"
+            role="button">
+            <img style="width: 10%;" src="/media/redes/Facebook_logo.jpg" alt="">
+          </a>
+            
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #00E676; width: 50%"
+            href="https://wa.me/56953154943?text=Hola!!%20Valeska,%20tengo%20algunas%20preguntas%20"
+            role="button">
+            <img style="width: 10%;" src="/media/redes/whatsapp-logo.png" alt="">
+          </a>
+
+          <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #ac2bac; width: 50%"
+            href="https://www.instagram.com/podologiaval/"
+            role="button">
+            <img style="width: 10%;" src="/media/redes/instagram_logo.jpg" alt="">
+          </a>
+    </section>
+
+    <p class="mb-3" style="font-size: 20; color: black; text-align: center;">
+      Si tienes preguntas pincha el icono de whatsapp y hablamos!
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

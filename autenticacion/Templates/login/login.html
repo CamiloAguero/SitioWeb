@@ -1,0 +1,27 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <form action="" method="post" style="color: white;">
+        {% csrf_token %}
+
+        <div style="width: 50%; margin: auto;">
+            <br><br>
+            {% if messages %}
+                {% for msj in messages %}
+
+                    <span class="alert alert-{{mensaje.tags}}">{{msj}}</span>
+
+                {% endfor %}
+            {% endif %}
+            <br><br>
+            {{form|crispy}}
+            <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+
+        </div>
+
+    </form>
+{% endblock %}

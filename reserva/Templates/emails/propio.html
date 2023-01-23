@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETALLE</title>
+</head>
+<body>
+    <strong>{{nombre}}</strong> reservó para <strong>{{tratamiento}}</strong>
+     para el dia <strong>{{fecha}}</strong> entre las <strong>{{hora}}</strong>
+     <br>
+     <br>
+    {% if domicilio %}
+        <strong>{{nombre}}</strong> pidio servicio a domicilio, su direccion es: <strong>{{direccion}}</strong>
+    {% endif %}
+    <br>
+    <br>
+    con un total a pagar de: <strong>{{precio}}</strong>
+    <br>
+    <br>
+    Contacto: <strong>{{telefono}} - {{mail}}</strong>
+</body>
+</html>

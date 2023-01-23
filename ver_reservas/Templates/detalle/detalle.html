@@ -1,0 +1,95 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% block title %}Detalle{% endblock %}
+
+{% block content %}
+
+<div class="formu">
+
+    <h2 class="section-heading mb-4" style="text-align: center;">
+        <span class="section-heading-lower" style="color: darkblue;">DETALLE!</span>
+    </h2>
+    
+
+    <form action="" method="post" style="text-align: center;">
+        {% csrf_token %}
+
+
+        <table style="color: white; text-align: center; margin: auto;">
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.nombre.label}}</strong> : {{detalle.nombre}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.mail.label}}</strong> : {{detalle.mail}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.telefono.label}}</strong> : +56 {{detalle.telefono}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.fecha_reserva.label}}</strong> : {{detalle.fecha_reserva}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.hora_reserva.label}}</strong> : {{detalle.hora_reserva}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.tratamiento.label}}</strong> : {{detalle.tratamiento}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.cantidad.label}}</strong> : {{detalle.cantidad}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.domicilio.label}}</strong> : 
+                    {% if detalle.domicilio %}
+                    SI
+                    {% else %}
+                    NO
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">{{formulario.direccion.label}}</strong> : 
+                    {% if detalle.domicilio %}
+                    {{detalle.direccion}}
+                    {% else %}
+                    NO
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="color: darkblue;">Precio Total</strong> : {{detalle.precio_total}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <a href="{% url 'Ver_Reservas' %}" class="btn btn-success">Volver</a>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+
+{% block content %}
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'SitioWebApp/img/Principal.jpg' %}" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper" style="color: darkblue;">¿TE INTERESA LA SALUD DE TUS PIES O TIENES PROBLEMAS CON ELLOS?</span>
+            <span class="section-heading-lower" style="color: darkblue;">¡YO TE AYUDO!</span>
+          </h2>
+          <p class="mb-3" style="color: darkblue;">
+            Hola, soy Valeska Díaz podóloga clínica. Estudié en el instituto Jonh Kennedy de Viña del Mar y tengo cursos de cuidadora de adulto mayor y diabetología. Tengo una gran vocación por el servicio, especialmente con nuestros adultos mayores. Sé lo importante que es tener pies sanos, libres de cualquier patología que cause molestias, dolor o inseguridad. Mi mayor objetivo es entregarte el bienestar y alivio que necesitas para lucir tus pies de forma segura y feliz. Encontrarás un ambiente de confianza, confidencialidad y amabilidad que hará que te sientas en casa.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+    

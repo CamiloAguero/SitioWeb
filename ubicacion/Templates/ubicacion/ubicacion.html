@@ -1,0 +1,26 @@
+{% extends "SitioWebApp/base.html" %}
+
+{% load static %}
+{% block title %}Ubicación{% endblock %}
+
+
+
+{% block content %}
+<div style="background-color: 81D4FA; margin: 15px auto; width: 50%;">
+    <h2 class="section-heading mb-4" style="text-align: center;">
+        <span class="section-heading-lower" style="color: darkblue;">Aquí estamos ubicados! no te pierdas.</span>
+    </h2>
+    <div class="responsive-map-container">
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221.41587446433255!2d-70.33031576485172!3d-27.38651944947953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe3c48bcf14bdc908!2zMjfCsDIzJzExLjQiUyA3MMKwMTknNDkuMCJX!5e0!3m2!1ses!2scl!4v1671247690693!5m2!1ses!2scl"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+
+    <p class="mb-3" style="font-size: 20; color: black; text-align: center;">Salitrera la granja #2073</p>
+
+    <br>
+    <br>
+    
+</div>
+{% endblock %}
