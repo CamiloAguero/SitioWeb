@@ -13,21 +13,27 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from django.contrib.messages import constants as msj_error
+from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-apz#h_%u15==hb6prtx5cvitjiraavn8go1iv5gz7h6and50ty'
+#SECRET_KEY = 'django-insecure-apz#h_%u15==hb6prtx5cvitjiraavn8go1iv5gz7h6and50ty'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
 
 
 # Application definition
@@ -85,6 +91,10 @@ WSGI_APPLICATION = 'SitioWeb.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600)
+}
+'''
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sitio_web',
@@ -93,7 +103,7 @@ DATABASES = {
         'HOST': 'dpg-cf7updpa6gdpab9qqpig-a',
         'DATABASE_PORT': '5432',
     }
-}
+'''
 
 
 # Password validation
