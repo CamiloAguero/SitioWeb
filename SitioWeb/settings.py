@@ -145,8 +145,8 @@ EMAIL_HOST="smtp-mail.outlook.com"
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS=True
 EMAIL_PORT=587
-EMAIL_HOST_USER="camilo.aguero02@inacapmail.cl"
-EMAIL_HOST_PASSWORD="Kadmel01"
+EMAIL_HOST_USER="podologiaval@outlook.es"
+EMAIL_HOST_PASSWORD="valeska123456"
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
 

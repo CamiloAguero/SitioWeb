@@ -31,7 +31,7 @@ def enviar_mail(**kwargs):
 
     mensaje_texto = strip_tags(mensaje)
     mensaje_texto_propio = strip_tags(mensaje_propio)
-    from_email = "camilo.aguero02@inacapmail.cl"
+    from_email = "podologiaval@outlook.es"
     to = kwargs.get("mail")
     send_mail(asunto,mensaje_texto,from_email,[to],html_message= mensaje)
     send_mail(asunto,mensaje_texto_propio,from_email,['camilo.aguero02@inacapmail.cl'],html_message= mensaje_propio)
