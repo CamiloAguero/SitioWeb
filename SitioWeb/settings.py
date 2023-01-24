@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'SitioWebApp',
     'tratamientos',
@@ -54,8 +55,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'ver_reservas',
     'fichas',
-    "whitenoise.runserver_nostatic",
-    "django.contrib.staticfiles",
 ]
 
 MIDDLEWARE = [
