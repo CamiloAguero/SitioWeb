@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sitio_web',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'USER': 'local',
+        'PASSWORD': '13pxIqYJToHhhBQaRHHTj0YuXC9j47Kd',
+        'HOST': 'dpg-cf7updpa6gdpab9qqpig-a',
         'DATABASE_PORT': '5432',
     }
 }
