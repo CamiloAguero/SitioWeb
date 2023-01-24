@@ -51,7 +51,7 @@
             <th>
                 Direccion
             </th>
-            <th>
+            <th colspan="2">
                 Acciones
             </th>
         </tr>
@@ -88,6 +88,7 @@
                 </td>
                 <td>
                     <a href="{% url 'Eliminar' ver_reservas.id %}" class="btn btn-success"><i class="bi bi-trash"></i></a>
+                    <a href="{% url 'Modificar' ver_reservas.id %}" class="btn btn-success"><i class="bi bi-gear"></i></a>
                 </td>
             </tr>
         {% endfor %}

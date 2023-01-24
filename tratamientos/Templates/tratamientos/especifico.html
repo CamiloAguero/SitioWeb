@@ -27,7 +27,7 @@
     {% endfor %}
     <br><br><br><br><br>
     <section>
-        <div style="width: 75%; margin: auto; text-align: center; color: white;">
+        <div style="width: 75%; margin: auto; text-align: center; color: white; font-size: 20;">
             Tratamientos:
             {% for tratamiento in tratamientos %}
                 <a href="{% url 'Especifico' tratamiento.id %}" style="color: white;">{{tratamiento.nombre}} | </a>

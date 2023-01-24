@@ -60,8 +60,11 @@ def modificar(request,ficha_id):
     form_ficha = formulario_fichas()
     if request.method == "POST":
         ficha = Ficha.objects.get(id=ficha_id)
-        obs = request.POST.get('observacion')
-        ficha.observacion = obs
+        observacion = request.POST.get('observacion')
+        ficha.observacion = observacion
+        if not ficha.imagen2:
+            imagen2 = request.FILES.get('imagen2')
+            ficha.imagen2 = imagen2
         ficha.save()
         return redirect('/fichas/')
     return render(request,"mod_ficha/mod_ficha.html",{"ficha":ficha,"formulario":form_ficha})

@@ -14,7 +14,7 @@
     <p class="mb-3" style="color: rgb(0, 0, 0); text-align: center;font-size: 20;">DETALLE:</p>
     
 
-    <form action="" method="post" style="text-align: center;">
+    <form action="" method="post" style="text-align: center;" enctype="multipart/form-data">
         {% csrf_token %}
 
 
@@ -53,7 +53,20 @@
                 <td>
                     <strong style="color: darkblue;">imagen</strong> :
                     <br>
-                    <img src="{{ficha.imagen.url}}" alt="" style="width: 15%;">
+                    <img src={{ficha.imagen.url}} alt="" style="width: 15%;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if ficha.imagen2 %}
+                    <strong style="color: darkblue;">Despues</strong>
+                    <br>
+                    <img src={{ficha.imagen2.url}} alt="" style="width: 15%;">
+                    {% else %}
+                    <strong style="color: darkblue;">Agregar imagen</strong> :
+                    <br>
+                    <input type="file" name="imagen2" id="imagen2">
+                    {% endif %}
                 </td>
             </tr>
             <tr>

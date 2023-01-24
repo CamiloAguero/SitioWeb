@@ -16,3 +16,13 @@ def detalle(request,reserva_id):
     detalle = Reservas.objects.get(id=reserva_id)
     formulario = formulario_reserva()
     return render(request,"detalle/detalle.html",{"detalle":detalle,"formulario":formulario})
+
+def modificar(request,reserva_id):
+    detalle = Reservas.objects.get(id=reserva_id)
+    form = formulario_reserva()
+    if request.method == "POST":
+        fecha = request.POST.get('fecha_reserva')
+        detalle.fecha_reserva = fecha
+        detalle.save()
+        return redirect('/ver_reservas/')
+    return render(request,"modificar/modificar.html",{"detalle":detalle,"formulario":form})

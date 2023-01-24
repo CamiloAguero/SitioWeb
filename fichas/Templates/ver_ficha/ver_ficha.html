@@ -83,14 +83,20 @@
                 <td>
                     <strong style="color: darkblue;">{{formulario.observacion.label}}</strong> :
                     <br>
-                    {{ficha.observacion}}
+                    <textarea name="observacion" id="" cols="30" rows="5" disabled>{{ficha.observacion}}</textarea>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <strong style="color: darkblue;">imagen</strong>
+                    <strong style="color: darkblue;">Antes</strong>
                     <br>
                     <img src={{ficha.imagen.url}} alt="" style="width: 15%;">
+                    <br>
+                    {% if ficha.imagen2 %}
+                    <strong style="color: darkblue;">Despues</strong>
+                    <br>
+                    <img src={{ficha.imagen2.url}} alt="" style="width: 15%;">
+                    {% endif %}
                 </td>
             </tr>
             <tr>
