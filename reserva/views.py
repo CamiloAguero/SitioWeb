@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
 from .form import formulario_reserva
 from .models import Reservas
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
-from django.core.mail import send_mail
+from func.funciones import *
 import datetime
 import locale
 
@@ -64,43 +62,11 @@ def reserva(request):
                     tratamiento = tratamiento,
                     domicilio = domicilio,
                     direccion = direccion,
-                    precio = precio
+                    precio = precio,
+                    tipo = 'detalle'
                 )
                 return render(request,"exito/exito.html",{"formulario":form_reserva,"reservas":reservas})
     return render(request,"reserva/reserva.html",{"formulario":form_reserva})
-
-
-def enviar_mail(**kwargs):
-    asunto = "RESERVA PODOLÓGICA PARA " + kwargs.get("nombre").upper()
-    mensaje = render_to_string("emails/detalle.html",{
-        "nombre": kwargs.get("nombre"),
-        "mail": kwargs.get("mail"),
-        "telefono": kwargs.get("telefono"),
-        "fecha": kwargs.get("fecha"),
-        "hora": kwargs.get("hora"),
-        "tratamiento": kwargs.get("tratamiento"),
-        "domicilio": kwargs.get("domicilio"),
-        "direccion": kwargs.get("direccion"),
-        "precio": kwargs.get("precio")
-    })
-    mensaje_propio = render_to_string("emails/propio.html",{
-        "nombre": kwargs.get("nombre"),
-        "mail": kwargs.get("mail"),
-        "telefono": kwargs.get("telefono"),
-        "fecha": kwargs.get("fecha"),
-        "hora": kwargs.get("hora"),
-        "tratamiento": kwargs.get("tratamiento"),
-        "domicilio": kwargs.get("domicilio"),
-        "direccion": kwargs.get("direccion"),
-        "precio": kwargs.get("precio")
-    })
-
-    mensaje_texto = strip_tags(mensaje)
-    mensaje_texto_propio = strip_tags(mensaje_propio)
-    from_email = "camilo.aguero02@inacapmail.cl"
-    to = kwargs.get("mail")
-    send_mail(asunto,mensaje_texto,from_email,[to],html_message= mensaje)
-    send_mail(asunto,mensaje_texto_propio,from_email,['camilo.aguero02@inacapmail.cl'],html_message= mensaje_propio)
 
 def validacion_reserva(hora,fecha,domicilio,direccion,tratamiento,cant):
     #Recuperar Día

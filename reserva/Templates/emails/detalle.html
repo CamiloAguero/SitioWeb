@@ -7,6 +7,9 @@
     <title>DETALLE</title>
 </head>
 <body>
+
+    {% if tipo == 'detalle' %}
+
     Hola <strong>{{nombre}}</strong>
     <br>
     <br>
@@ -42,6 +45,45 @@
     <br>
     <strong>Nos vemos en la consulta!</strong>
     <br>
+    {% elif tipo == 'modificacion' %}
+    Hola <strong>{{nombre}}</strong>
+    <br>
+    <br>
+    Te queremos avisar que se ha modificado tu dia de la consulta para el dia <strong>{{fecha}}</strong>
+    <br>
+    Todo lo demas sigue igual:
+    <br>
+    Recuerda que reservaste para <strong>{{tratamiento}}</strong> 
+    entre las <strong>{{hora}}</strong> 
+    {% if domicilio %}
+        con servicio a domicilio en: <strong>{{direccion}}</strong> 
+    {% endif %}
+    con un total a pagar de: <strong>{{precio}}</strong>
+    <br>
+    <br>
+    Te recordamos que para que se haga efectiva la reserva, 
+    tienes que abonar un monto de $5.000 antes del dia de la reserva 
+    indicando Nombre y Telefono en el mensaje de transferencia.
+    <br>
+    <br>
+    Cuenta de transferencia:
+    <br>
+    <strong>Nombre: </strong>Valeska Diaz
+    <br>
+    <strong>Rut: </strong>19.125.514-3
+    <br>
+    <strong>Banco: </strong>Banco Estado
+    <br>
+    <strong>Tipo de cuenta: </strong>Cuenta Vista
+    <br>
+    <strong>Correo: </strong>vdiaz.podologia@gmail.com
+    <br>
+    <br>
+    <strong>El valor del abono será descontado del total de la consulta.</strong>
+    <br>
+    <strong>Nos vemos en la consulta!</strong>
+    <br>
+    {% endif %}
 
 </body>
 </html>

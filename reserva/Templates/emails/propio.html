@@ -7,6 +7,7 @@
     <title>DETALLE</title>
 </head>
 <body>
+    {% if tipo == 'detalle' %}
     <strong>{{nombre}}</strong> reservó para <strong>{{tratamiento}}</strong>
      para el dia <strong>{{fecha}}</strong> entre las <strong>{{hora}}</strong>
      <br>
@@ -20,5 +21,21 @@
     <br>
     <br>
     Contacto: <strong>{{telefono}} - {{mail}}</strong>
+    {% elif tipo == 'modificacion' %}
+    Se modificó la consulta de <strong>{{nombre}}</strong> para el dia <strong>{{fecha}}</strong>
+    <br>
+    Recuerda que reservó para <strong>{{tratamiento}}</strong> entre las <strong>{{hora}}</strong>
+    <br>
+    <br>
+    {% if domicilio %}
+        <strong>{{nombre}}</strong> pidio servicio a domicilio, su direccion es: <strong>{{direccion}}</strong>
+    {% endif %}
+    <br>
+    <br>
+    con un total a pagar de: <strong>{{precio}}</strong>
+    <br>
+    <br>
+    Contacto: <strong>{{telefono}} - {{mail}}</strong>
+    {% endif %}
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from reserva.models import Reservas
 from reserva.form import formulario_reserva
+from func.funciones import *
 
 # Create your views here.
 def ver_reservas(request):
@@ -24,5 +25,17 @@ def modificar(request,reserva_id):
         fecha = request.POST.get('fecha_reserva')
         detalle.fecha_reserva = fecha
         detalle.save()
+        enviar_mail(
+                    nombre = detalle.nombre,
+                    mail = detalle.mail,
+                    telefono = detalle.telefono,
+                    fecha = fecha,
+                    hora = detalle.hora_reserva,
+                    tratamiento = detalle.tratamiento,
+                    domicilio = detalle.domicilio,
+                    direccion = detalle.direccion,
+                    precio = detalle.precio_total,
+                    tipo = 'modificacion'
+                )
         return redirect('/ver_reservas/')
     return render(request,"modificar/modificar.html",{"detalle":detalle,"formulario":form})
