@@ -19,8 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('/', include('SitioWebApp.urls')),
+    path('', include('SitioWebApp.urls')),
     path('tratamientos/', include('tratamientos.urls')),
     path('ubicacion/', include('ubicacion.urls')),
     path('redes/', include('redes.urls')),
@@ -28,6 +27,7 @@ urlpatterns = [
     path('reserva/', include('reserva.urls')),
     path('ver_reservas/', include('ver_reservas.urls')),
     path('fichas/', include('fichas.urls')),
+    path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
