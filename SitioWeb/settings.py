@@ -74,9 +74,15 @@ ROOT_URLCONF = 'SitioWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': [
+            (
+                'django.template.loaders.filesystem.Loader',
+                [BASE_DIR / 'templates'],
+            ),
+        ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
