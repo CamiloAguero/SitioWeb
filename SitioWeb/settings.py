@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SitioWeb.wsgi.application'
+WSGI_APPLICATION = 'django.core.wsgi.get_wsgi_application()'
 
 
 # Database
