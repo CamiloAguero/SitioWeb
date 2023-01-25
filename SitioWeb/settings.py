@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY',default='django-insecure-apz#h_%u15==hb
 #DEBUG = True
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://pruebapodo.onrender.com']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
