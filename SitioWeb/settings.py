@@ -19,7 +19,7 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR / '.env')
+#load_dotenv(BASE_DIR / '.env')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,14 +27,16 @@ load_dotenv(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-apz#h_%u15==hb6prtx5cvitjiraavn8go1iv5gz7h6and50ty'
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY',default='django-insecure-apz#h_%u15==hb6prtx5cvitjiraavn8go1iv5gz7h6and50ty')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -95,7 +97,11 @@ WSGI_APPLICATION = 'SitioWeb.wsgi.application'
 
 DATABASES = {
 
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600)
+    'default': dj_database_url.config(
+
+        default='postgresql://postgres:postgres@localhost:5432/SitioWeb',
+        conn_max_age=600
+    )
 }
 '''
     'default': {
@@ -144,7 +150,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = "SitioWebApp/static"
+
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 MEDIA_URL = '/media/'
@@ -178,5 +192,3 @@ MESSAGES_TAGS = {
 DATE_INPUT_FORMATS = ('%d-%m-%Y')
 
 DATETIME_INPUT_FORMATS = ('%H:%M')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
